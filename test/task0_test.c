@@ -22,9 +22,8 @@ int main(void)
 	len1 = _printf("%s\n", "123 ABC \t ^%");
 	len2 =  printf("%s\n", "123 ABC \t ^%");
 	printf("Printf Length: %d | _printf Length: %d\n", len2, len1);
-	len1 = _printf("%s", NULL);
+	len1 = _printf("%s\n", NULL);
 	printf("_printf length: %d\n", len1);
-	_printf(NULL);
 
 	/* Print a Character */
 	len1 = _printf("Character: %c\n", 7);
@@ -48,7 +47,10 @@ int main(void)
 	len1 = _printf("Character: %c, String: %s\n", 'A', "Hello");
 	len2 =  printf("Character: %c, String: %s\n", 'A', "Hello");
 	printf("Printf Length: %d | _printf Length: %d\n", len2, len1);
-	
+
+	/* Print Binary Specifier */
+	len1 = _printf("Binary: %b\n", 98);
+	printf(" _print Length: %d\n", len1);
 
 	return (0);
 }
