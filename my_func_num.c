@@ -2,6 +2,7 @@
 
 /**
  * convert_binary - convert the unsigned int argument to binary
+ * @args: arguments to be inputted
  *
  * Return: number of characters counted
  */
