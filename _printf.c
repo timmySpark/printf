@@ -15,9 +15,12 @@ int _printf(const char *format, ...)
 	int (*func)(va_list);
 
 	va_start(args, format);
-	
-	if (format == NULL)
+
+	if (!format || (format[0] == '%' &&
+				(!format[1] || (format[1] == ' ' &&
+						!format[2]))))
 		return (-1);
+
 
 	while (*format)
 	{
@@ -28,6 +31,11 @@ int _printf(const char *format, ...)
 			func = get_spec(*format);
 			if (func)
 				char_count += func(args);
+			else
+			{
+				_putchar(*format);
+				char_count++;
+			}
 		}
 		else
 		{
