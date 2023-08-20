@@ -15,6 +15,9 @@ int _printf(const char *format, ...)
 	int (*func)(va_list);
 
 	va_start(args, format);
+	
+	if (format == NULL)
+		return (-1);
 
 	while (*format)
 	{
@@ -23,7 +26,8 @@ int _printf(const char *format, ...)
 			format++;
 
 			func = get_spec(*format);
-			char_count += func(args);
+			if (func)
+				char_count += func(args);
 		}
 		else
 		{
