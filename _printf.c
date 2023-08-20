@@ -2,6 +2,42 @@
 #include <stdarg.h>
 
 /**
+ * find_specifier - Processes a format specifier.
+ * @format: Pointer to current position in the format string.
+ * @args: Argument list.
+ *
+ * Return: Number of characters printed.
+ */
+
+int find_specifier(const char **format, va_list args)
+{
+	int char_count = 0;
+	int (*func)(va_list);
+
+	(*format)++;
+
+	if (**format == '\0')
+	{
+		_putchar(**format);
+		return (1);
+	}
+
+	func = get_spec(**format);
+
+	if (func)
+		char_count += func(args);
+	else
+	{
+		_putchar(**format);
+		char_count++;
+	}
+
+	return (char_count);
+}
+
+
+
+/**
  * _printf - Print formatted strings
  * @format: list of types of arguments passed to the function
  *
@@ -12,42 +48,31 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int char_count = 0;
-	int (*func)(va_list);
-
-	va_start(args, format);
 
 	if (!format || (format[0] == '%' &&
 				(!format[1] || (format[1] == ' ' &&
 						!format[2]))))
 		return (-1);
 
+	va_start(args, format);
+
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			if (*format++ == '\0')
-			{
-				_putchar('%');
-				char_count++;
-				continue;
-			}
-
-			func = get_spec(*format);
-			if (func)
-				char_count += func(args);
-			else
-			{
-				_putchar(*format);
-				char_count++;
-			}
+			char_count += find_specifier(&format, args);
 		}
 		else
 		{
 			_putchar(*format);
 			char_count++;
 		}
+
+
 		format++;
 	}
+
+
 	va_end(args);
 	return (char_count);
 }
