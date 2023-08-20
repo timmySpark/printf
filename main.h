@@ -15,6 +15,8 @@ int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
 
+int convert_binary(va_list args);
+
 /**
  * struct specifier - Struct specifier
  * @spec: specs containig the conversion specifiers
