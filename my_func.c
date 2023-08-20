@@ -45,13 +45,13 @@ int print_string(va_list args)
  * print_percent - print percentage
  * @args: arguments to be inputted
  *
- * Return: On success - 1.
+ * Return: On success -1.
  */
 
 int print_percent(va_list args)
 {
 	(void) args;
 	_putchar('%');
-	return (1);
+	return (-1);
 }
 
