@@ -23,7 +23,8 @@ int _printf(const char *format, ...)
 			format++;
 
 			func = get_spec(*format);
-			char_count += func(args);
+			if (func)
+				char_count += func(args);
 		}
 		else
 		{
