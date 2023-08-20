@@ -24,9 +24,14 @@ int _printf(const char *format, ...)
 
 	while (*format)
 	{
-		if (*format == '%' && *(format + 1))
+		if (*format == '%')
 		{
-			format++;
+			if (*format++  == '\0')
+			{
+				_putchar(*format);
+				char_count++;
+				continue;
+			}
 
 			func = get_spec(*format);
 			if (func)
