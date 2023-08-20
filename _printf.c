@@ -21,14 +21,13 @@ int _printf(const char *format, ...)
 						!format[2]))))
 		return (-1);
 
-
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			if (*format++  == '\0')
+			if (*format++ == '\0')
 			{
-				_putchar(*format);
+				_putchar('%');
 				char_count++;
 				continue;
 			}
