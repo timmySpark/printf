@@ -9,6 +9,7 @@
 int _putchar(int c);
 int _printf(const char *format, ...);
 int (*get_spec(char spec))(va_list);
+int find_specifier(const char **format, va_list args);
 
 int print_char(va_list args);
 int print_string(va_list args);
