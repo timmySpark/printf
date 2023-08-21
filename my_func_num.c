@@ -17,7 +17,7 @@ int convert_binary(va_list args)
 
 	if (num == 0)
 	{
-		_putchar('0');
+		buffer_store_char('0');
 		return (1);
 	}
 
@@ -28,12 +28,12 @@ int convert_binary(va_list args)
 	{
 		if (num & mask)
 		{
-			_putchar('1');
+			buffer_store_char('1');
 			count++;
 		}
 		else
 		{
-			_putchar('0');
+			buffer_store_char('0');
 			count++;
 		}
 

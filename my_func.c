@@ -11,7 +11,7 @@ int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
-	_putchar(c);
+	buffer_store_char(c);
 	return (1);
 }
 
@@ -34,7 +34,7 @@ int print_string(va_list args)
 
 	while (*str)
 	{
-		_putchar(*str++);
+		buffer_store_char(*str++);
 		count++;
 	}
 
@@ -51,7 +51,7 @@ int print_string(va_list args)
 int print_percent(va_list args)
 {
 	(void) args;
-	_putchar('%');
+	buffer_store_char('%');
 	return (1);
 }
 
