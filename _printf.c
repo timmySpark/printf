@@ -54,12 +54,12 @@ int _printf(const char *format, ...)
 	va_list args;
 	int char_count = 0;
 
-	/*
-	 * if (!format)
+
+	if (!format)
 		return (-1);
-*/
-	if (!format || (format[0] == '%' && (!format[1] || (format[1] == ' ' &&
-						!format[2]))))
+
+	if (format[0] == '%' && (!format[1] || (format[1] == ' ' &&
+						!format[2])))
 		return (-1);
 
 	va_start(args, format);
@@ -68,9 +68,19 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			char_count += find_specifier(format, args);
-			if (*(format + 1) != '\0')
+			if (*(format + 1) == '%')
+			{
+				_putchar('%');
+				char_count++;
 				format++;
+			}
+			else
+			{
+				char_count += find_specifier(format, args);
+
+				if (*(format + 1) != '\0')
+					format++;
+			}
 		}
 		else
 		{
@@ -78,10 +88,8 @@ int _printf(const char *format, ...)
 			char_count++;
 		}
 
-
 		format++;
 	}
-
 
 	va_end(args);
 	return (char_count);
