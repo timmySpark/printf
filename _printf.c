@@ -54,12 +54,11 @@ int _printf(const char *format, ...)
 	va_list args;
 	int char_count = 0;
 
-	if (!format || (format[0] == '%' &&
-				(!format[1] || (format[1] == ' ' &&
-						!format[2]))))
+	if (!format)
 		return (-1);
 
-	if (format == NULL)
+	if (format[0] == '%' && (!format[1] || (format[1] == ' ' &&
+						!format[2])))
 		return (-1);
 
 	va_start(args, format);
