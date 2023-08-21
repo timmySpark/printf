@@ -21,7 +21,7 @@ int find_specifier(const char *format, va_list args)
 
 	if (*format == '\0')
 	{
-		buffer_store_char(*format);
+		buffer_store_char('%');
 		return (1);
 	}
 
