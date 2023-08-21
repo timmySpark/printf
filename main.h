@@ -17,6 +17,9 @@ int print_percent(va_list args);
 
 int convert_binary(va_list args);
 
+void buffer_store_char(char c);
+void empty_buffer(void);
+
 /**
  * struct specifier - Struct specifier
  * @spec: specs containig the conversion specifiers
