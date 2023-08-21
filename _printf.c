@@ -17,13 +17,11 @@ int find_specifier(const char *format, va_list args)
 	format++;
 
 	if (!format)
-	{
 		return (-1);
-	}
 
 	if (*format == '\0')
 	{
-		_putchar(*format);
+		buffer_store_char(*format);
 		return (1);
 	}
 
@@ -33,13 +31,12 @@ int find_specifier(const char *format, va_list args)
 		char_count += func(args);
 	else
 	{
-		_putchar(*format);
+		buffer_store_char(*format);
 		char_count++;
 	}
 
 	return (char_count);
 }
-
 
 
 /**
@@ -49,17 +46,14 @@ int find_specifier(const char *format, va_list args)
  * Return: Number of characters printed
  */
 
+
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int char_count = 0;
 
-
-	if (!format)
-		return (-1);
-
-	if (format[0] == '%' && (!format[1] || (format[1] == ' ' &&
-						!format[2])))
+	if (!format || (format[0] == '%' && (!format[1] ||
+					(format[1] == ' ' && !format[2]))))
 		return (-1);
 
 	va_start(args, format);
@@ -69,19 +63,19 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			char_count += find_specifier(format, args);
-
 			if (*(format + 1) != '\0')
 				format++;
 		}
 		else
 		{
-			_putchar(*format);
+			buffer_store_char(*format);
 			char_count++;
 		}
 
 		format++;
 	}
 
+	empty_buffer();
 	va_end(args);
 	return (char_count);
 }
