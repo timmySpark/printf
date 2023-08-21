@@ -37,7 +37,6 @@ int convert_binary(va_list args)
 			count++;
 		}
 
-		/*count++*/;
 		mask >>= 1;
 	}
 
