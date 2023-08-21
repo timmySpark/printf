@@ -68,19 +68,10 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			if (*(format + 1) == '%')
-			{
-				_putchar('%');
-				char_count++;
-				format++;
-			}
-			else
-			{
-				char_count += find_specifier(format, args);
+			char_count += find_specifier(format, args);
 
-				if (*(format + 1) != '\0')
-					format++;
-			}
+			if (*(format + 1) != '\0')
+				format++;
 		}
 		else
 		{
