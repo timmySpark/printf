@@ -10,6 +10,8 @@
 int main(void)
 {
 	int len1, len2;
+	void *addr;
+	addr = (void *)0x7ffe637541f0;
 
 	/* Print Strings */
 
@@ -24,6 +26,8 @@ int main(void)
 	printf("Printf Length: %d | _printf Length: %d\n", len2, len1);
 	len1 = _printf("%s\n", NULL);
 	printf("_printf length: %d\n", len1);
+	len2 = _printf(NULL);
+	printf("NULL len: %d\n", len2);
 
 	/* Print a Character */
 	len1 = _printf("Character: %c\n", 7);
@@ -38,6 +42,7 @@ int main(void)
 	len2 =  printf("Percentage: [%%]\n");
 	printf("Printf Length: %d | _printf Length: %d\n", len2, len1);
 
+
 	/* Print Unknown Specifier *
 	len1 = _printf("Unknown:[%z]\n", 67);
 	len2 =  printf("Unknown:[%z]\n", 67);
@@ -51,6 +56,11 @@ int main(void)
 	/* Print Binary Specifier */
 	len1 = _printf("Binary: %b\n", 98);
 	printf(" _print Length: %d\n", len1);
+
+	/* Print Address */
+	len1 =_printf("Address:[%p]\n", addr);
+	len2 = printf("Address:[%p]\n", addr);
+	printf("Printf Length: %d | _printf Length: %d\n", len2, len1);
 
 	return (0);
 }
