@@ -31,8 +31,9 @@ int find_specifier(const char *format, va_list args)
 		char_count += func(args);
 	else
 	{
+		buffer_store_char('%');
 		buffer_store_char(*format);
-		char_count++;
+		char_count += 2;
 	}
 
 	return (char_count);
@@ -51,6 +52,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int char_count = 0;
+
 
 	if (!format || (format[0] == '%' && (!format[1] ||
 					(format[1] == ' ' && !format[2]))))
