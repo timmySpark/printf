@@ -25,7 +25,7 @@ void empty_buffer(void)
 
 void buffer_store_char(char c)
 {
-	if (buffer_index == BUFFER_SIZE)
+	if (buffer_index >= BUFFER_SIZE)
 		empty_buffer();
 
 	buffer[buffer_index++] = c;
