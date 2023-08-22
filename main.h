@@ -6,7 +6,7 @@
 
 /* prototypes for functions */
 
-int _putchar(int c);
+int _putchar(char c);
 int _printf(const char *format, ...);
 int (*get_spec(char spec))(va_list);
 int find_specifier(const char *format, va_list args);
@@ -18,6 +18,9 @@ int print_percent(va_list args);
 int print_pointer(va_list args);
 int convert_binary(va_list args);
 int convert_hex(unsigned long int n);
+
+char *rev_str(char *s);
+int print_rev_string(va_list args);
 
 void buffer_store_char(char c);
 void empty_buffer(void);
