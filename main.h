@@ -15,7 +15,9 @@ int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
 
+int print_pointer(va_list args);
 int convert_binary(va_list args);
+int convert_hex(unsigned long int n);
 
 void buffer_store_char(char c);
 void empty_buffer(void);

@@ -15,6 +15,7 @@ int (*get_spec(char spec))(va_list)
 		{'c', print_char},
 		{'s', print_string},
 		{'b', convert_binary},
+		{'p', print_pointer},
 		{'%', print_percent},
 		{'\0', NULL}
 	};
