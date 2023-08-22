@@ -15,9 +15,20 @@ int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
 
+int _put_int(int num, int count);
+int print_int(va_list args);
+
+
 int print_pointer(va_list args);
 int convert_binary(va_list args);
-int convert_hex(unsigned long int n);
+int store_hex(unsigned long int n, char _case);
+
+int print_u_num(unsigned int n, unsigned int base);
+int print_unsigned_num(va_list args);
+int print_octal_num(va_list args);
+int print_hex(va_list args);
+int print_HEX(va_list args);
+int _rot13( va_list args);
 
 char *rev_str(char *s);
 int print_rev_string(va_list args);
