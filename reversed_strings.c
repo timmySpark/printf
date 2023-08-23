@@ -33,7 +33,7 @@ int print_rev_string(va_list args)
 
 /**
  * rev_str - reverse string
- * @str: string to be reversed
+ * @s: string to be reversed
  *
  * Return: reversed strings
  */
