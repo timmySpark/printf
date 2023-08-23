@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <limits.h>
 
 /**
  * main - test file for printf functions
@@ -11,8 +12,10 @@ int main(void)
 {
 	int len1, len2;
 	char test[] = "gnirts a si sihT";
+	unsigned int ui;
 	void *addr;
 	addr = (void *)0x7ffe637541f0;
+	ui = (unsigned int)INT_MAX + 1024;
 
 	/* Print Strings */
 
@@ -27,6 +30,7 @@ int main(void)
 	printf("Printf Length: %d | _printf Length: %d\n", len2, len1);
 	len1 = _printf("Reversed string: %r\n", test);
 	printf("_printf Length: %d\n", len1);
+	_printf("%S\n", "Best\nSchool");
 
 	/* Print a Character */
 
@@ -42,6 +46,25 @@ int main(void)
 	len2 =  printf("Percentage: [%%]\n");
 	printf("Printf Length: %d | _printf Length: %d\n", len2, len1);
 
+	/* Print Integers */
+
+	len1 = _printf("A simple sentence.\n");
+	len2 = printf("A simple sentence.\n");
+	_printf("_printfLength:[%d, %i]\n", len1, len1);
+	printf("printfLength:[%d, %i]\n", len2, len2);
+	_printf("Negative(_printf):[%d]\n", -762534);
+	printf("Negative:[%d]\n", -762534);
+	_printf("Unsigned(_printf):[%u]\n", ui);
+	printf("Unsigned:[%u]\n", ui);
+	_printf("Unsigned octal(_printf):[%o]\n", ui);
+	printf("Unsigned octal:[%o]\n", ui);
+	_printf("Unsigned hexadecimal(_printf):[%x, %X]\n", ui, ui);
+	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+
+	/* rot13 */
+	
+	_printf("Original: %s\n", "Hello, World!");
+ 	 _printf("ROT13: %R\n", "Hello, World!");
 
 	/* Print Unknown Specifier */
 
