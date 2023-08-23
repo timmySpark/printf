@@ -41,7 +41,6 @@ int print_string(va_list args)
 	return (count);
 }
 
-
 /**
  * print_S - print non printable characters and strings
  *@args: Arguments list
@@ -87,6 +86,7 @@ int print_S(va_list args)
 
 	return (count);
 }
+
 
 /**
  * print_percent - print percentage

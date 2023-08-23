@@ -24,7 +24,7 @@ int _put_int(int num, int count)
 		count++;
 		n = -n;
 	}
-
+  
 	if (n / 10)
 		count = _put_int(n / 10, count);
 

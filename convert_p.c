@@ -70,7 +70,6 @@ int store_hex(unsigned long int n, char _case)
 			buffer_store_char((n % 16) - 10 + 'a');
 		else if (_case == 'X')
 			buffer_store_char((n % 16) - 10 + 'A');
-
 		count++;
 	}
 
