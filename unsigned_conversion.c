@@ -11,6 +11,7 @@
 int print_u_num(unsigned int n, unsigned int base)
 {
 	int count = 0;
+
 	if (n == 0)
 	{
 		buffer_store_char('0');

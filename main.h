@@ -30,7 +30,7 @@ int print_hex(va_list args);
 int print_HEX(va_list args);
 
 char rot13_char(char c);
-int _rot13( va_list args);
+int _rot13(va_list args);
 
 char *rev_str(char *s);
 int print_rev_string(va_list args);
