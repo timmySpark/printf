@@ -22,16 +22,15 @@ int _put_int(int num, int count)
 	{
 		buffer_store_char('-');
 		count++;
-		if (n <= -10)
-			n = -(n / 10);
+		n = -n;
 	}
+  
 	if (n / 10)
 		count = _put_int(n / 10, count);
 
 	buffer_store_char(n % 10 + '0');
 	count++;
 	return (count);
-
 
 }
 
@@ -43,13 +42,13 @@ int _put_int(int num, int count)
  * Return: numbers of integers counted
  */
 
-
 int print_int(va_list args)
 {
 	int value = va_arg(args, int);
 	int count = 0;
 
 	count = _put_int(value, 0);
+
 	return (count);
 }
 

@@ -47,6 +47,7 @@ int convert_binary(va_list args)
 /**
  * store_hex - print an unsigned long int as a hexadecimal number
  * @n: Number to be printed
+ * @case: Case 
  *
  * Return: Number of digits printed
  */
