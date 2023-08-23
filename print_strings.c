@@ -41,6 +41,53 @@ int print_string(va_list args)
 	return (count);
 }
 
+
+/**
+ * print_S - print non printable characters and strings
+ *@args: Arguments list
+ *
+ * Return: Then number of characters counted
+ */
+
+int print_S(va_list args)
+{
+	char *str;
+	int count = 0;
+
+	str = va_arg(args, char *);
+
+	if (!str)
+	{
+		str = "(null)";
+	}
+
+	while (*str)
+	{
+		if (*str < 32 || *str >= 127)
+		{
+			buffer_store_char('\\');
+			buffer_store_char('x');
+
+			if (*str < 16)
+			{
+				buffer_store_char('0');
+			}
+
+			count += store_hex(*str, 'X');
+			count += 2;
+		}
+		else
+		{
+			buffer_store_char(*str);
+			count++;
+		}
+
+		str++;
+	}
+
+	return (count);
+}
+
 /**
  * print_percent - print percentage
  * @args: arguments to be inputted
