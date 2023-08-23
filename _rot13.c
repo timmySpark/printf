@@ -2,7 +2,7 @@
 
 /**
  * rot13_char - calculate roted 13
- * @c: letter to be encoded 
+ * @c: letter to be encoded
  *
  * Return: letter to be encoded
  */
@@ -12,11 +12,11 @@ char rot13_char(char c)
 	int j;
 	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	
+
 	for (j = 0; j < 52; j++)
 	{
 		if (c == alpha[j])
-			return rot13[j];
+			return (rot13[j]);
 	}
 
 	return (c);
