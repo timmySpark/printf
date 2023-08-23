@@ -70,10 +70,11 @@ int print_S(va_list args)
 			if (*str < 16)
 			{
 				buffer_store_char('0');
+				count++;
 			}
 
 			count += store_hex(*str, 'x');
-			count += 2;
+			count++;
 		}
 		else
 		{
