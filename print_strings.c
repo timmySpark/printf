@@ -72,7 +72,7 @@ int print_S(va_list args)
 				buffer_store_char('0');
 			}
 
-			count += store_hex(*str, 'X');
+			count += store_hex(*str, 'x');
 			count += 2;
 		}
 		else

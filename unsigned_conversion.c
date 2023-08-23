@@ -11,7 +11,11 @@
 int print_u_num(unsigned int n, unsigned int base)
 {
 	int count = 0;
-
+	if (n == 0)
+	{
+		buffer_store_char('0');
+		return (1);
+	}
 	if (n >= base)
 		count += print_u_num(n / base, base);
 

@@ -10,7 +10,7 @@
 
 int _put_int(int num, int count)
 {
-	int n = num;
+	long int n = (long int) num;
 
 	if (n == 0)
 	{
@@ -47,8 +47,5 @@ int print_int(va_list args)
 	int value = va_arg(args, int);
 	int count = 0;
 
-	count = _put_int(value, 0);
-
-	return (count);
+	return (_put_int(value, count));
 }
-
